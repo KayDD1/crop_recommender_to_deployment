@@ -1,5 +1,13 @@
 {
     "cSpell.words": [
-        "levelname"
+        "boxcox",
+        "Breusch",
+        "breuschpagen",
+        "levelname",
+        "Pagen",
+        "pearsonr",
+        "scipy",
+        "sklearn",
+        "statsmodels"
     ]
 }

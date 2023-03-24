@@ -1,4 +1,17 @@
 pandas
 numpy
 seaborn
--e .
+matplotlib
+opendatasets
+scipy
+missingno
+plotly
+nbformat>=4.2.0
+statsmodels
+sklearn
+scikit-learn
+xgboost
+shap
+boxcox
+
+# -e . install at the end so packages are not rebuilt everytime installer runs

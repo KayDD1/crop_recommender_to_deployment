@@ -1,0 +1,3 @@
+#!c:\users\cgx\onedrive - teesside university\desktop\mlprojectend2end\crop_recom\scripts\python.exe
+from numba.pycc import main
+main()
