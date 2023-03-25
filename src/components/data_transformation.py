@@ -27,12 +27,12 @@ class DataTransformation:
         '''
         try:
             features=['N','P','K','ph','temperature','humidity','rainfall']
-            boxcox_column=['K']
+            power_transform_column=['K']
 
-            #create the Pipelines for boxcox, outlier remover and scaling
+            #create the Pipelines for power transformer, outlier remover and scaling
             column_power_transform_pipeline=Pipeline(
                 steps=[
-                    #apply BoxCox transformation on K column
+                    #apply power transformer on K column
                                 ('pt',PowerTransformer())
                 ]
             )
@@ -49,7 +49,7 @@ class DataTransformation:
             logging.info("Normalize the dataset using StandardScaler")
             preprocessor = ColumnTransformer(
                 [
-                ("column_boxcox_pipeline", column_power_transform_pipeline, boxcox_column),
+                ("column_power_transformer_pipeline", column_power_transform_pipeline, power_transform_column),
                 ("data_preparation_pipeline", data_preparation_pipeline, features)
                 ]
             )

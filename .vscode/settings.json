@@ -5,10 +5,13 @@
         "breuschpagen",
         "dataframe",
         "levelname",
+        "modeltrainer",
+        "multiclass",
         "Pagen",
         "pearsonr",
         "scipy",
         "sklearn",
-        "statsmodels"
+        "statsmodels",
+        "xgboost"
     ]
 }
