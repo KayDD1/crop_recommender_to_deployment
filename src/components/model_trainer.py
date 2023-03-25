@@ -1,5 +1,7 @@
 import os
 import sys
+import numpy as np
+import pandas as pd
 from dataclasses import dataclass
 from sklearn.ensemble import (
     RandomForestClassifier,
@@ -55,8 +57,48 @@ class ModelTrainer:
                 
             }
 
+            params={
+                "Random Forest":{ 
+                    'n_estimators': [50, 100, 200],
+                    'max_features': ['auto', 'sqrt', 'log2'],
+                    'max_depth' : [2,4,6,8],
+                    'criterion' :['gini', 'entropy']
+                },
+                "Decision Trees":{
+                    'max_depth': range(1,20), 
+                    'min_samples_split': range(2,10), 
+                    'min_samples_leaf': range(2,10), 
+                    'criterion':['gini','entropy']
+                },
+                "Naive Bayes":{
+                    'var_smoothing': np.logspace(0,-9, num=100)
+                },
+                    "Gradient Boosting":{
+                    'learning_rate': np.arange(000.1,000.5,0.009),
+                    'n_estimators': np.arange(50,500,50),
+                    'max_depth': np.arange(1,10,1),
+                    'min_samples_split': np.arange(2,10,1),
+                    'min_samples_leaf': np.arange(1,10,1)
+                },
+                "Logistic Regression":{
+                    'penalty': ['l1', 'l2'],
+                    'C': [0.001, 0.01, 0.1, 1, 10, 100, 1000]
+                },
+                "K-Nearest Neighbors":{
+                    'n_neighbors': range(1,31),
+                    'weights': ['uniform', 'distance'], 
+                    'p': [1, 2]
+                },
+                "Support Vector Machine":{
+                    'C': [0.1, 1, 10, 100], 
+                    'gamma': [1, 0.1, 0.01, 0.001], 
+                    'kernel': ['rbf', 'linear']
+                }
+
+            }                
+                
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,
-                                             y_test=y_test,models=models)
+                                             y_test=y_test,models=models, param=params)
             
             ## Get Best Model Score from dict
             best_model_score = max(sorted(model_report.values()))
