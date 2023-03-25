@@ -3,6 +3,7 @@
         "boxcox",
         "Breusch",
         "breuschpagen",
+        "dataframe",
         "levelname",
         "Pagen",
         "pearsonr",

@@ -12,6 +12,6 @@ sklearn
 scikit-learn
 xgboost
 shap
-boxcox
+dill
 
 # -e . install at the end so packages are not rebuilt everytime installer runs
