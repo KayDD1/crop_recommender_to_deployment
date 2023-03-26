@@ -13,5 +13,7 @@ scikit-learn
 xgboost
 shap
 dill
+flask
+pickle
 
 # -e . install at the end so packages are not rebuilt everytime installer runs

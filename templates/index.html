@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <style>
+        body {
+          background-image: url("https://images.pexels.com/photos/325944/pexels-photo-325944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+          background-position: 200%;
+          background-size: cover;
+        }
+    </style>
+    <div class="login">
+        <h1 class="title"><b>Crop Recommender System</b></h1>
+
+        <form action="{{url_for('predict')}}"method="post">
+            <input type="text" name="N" placeholder="Sodium(N)" required="required"><br>
+            <input type="text" name="P" placeholder="Phosphorus(P)" required="required"><br>
+            <input type="text" name="K" placeholder="Potassium(K)" required="required"><br>
+            <input type="text" name="temperature" placeholder="Temperature" required="required"><br>
+            <input type="text" name="humidity" placeholder="Humidity" required="required"><br>
+            <input type="text" name="ph" placeholder="pH" required="required"><br>
+            <input type="text" name="rainfall" placeholder="Rainfall" required="required"><br>
+    
+    
+    
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+    </div> 
+    <h1 class="predict">
+        {{prediction_text}}
+    </h1>   
+</body>
+</html>

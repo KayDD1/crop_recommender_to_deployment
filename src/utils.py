@@ -22,22 +22,22 @@ def save_object(file_path, obj):
         raise CustomException(e,sys)
     
 
-def evaluate_models(X_train, y_train,X_test,y_test,models, param):
+def evaluate_models(X_train, y_train,X_test,y_test,models):
     try:
         report={}
 
         for i in range(len(list(models))):
             model = list(models.values())[i]
-            para=param[list(models.keys())[i]]
+            # para=param[list(models.keys())[i]]
 
 
-            gridSearchCV = GridSearchCV(model,para,cv=3)
-            gridSearchCV.fit(X_train, y_train)
+            # gridSearchCV = GridSearchCV(model,para,cv=3)
+            # gridSearchCV.fit(X_train, y_train)
 
-            model.set_params(**gridSearchCV.best_params_)
-            model.fit(X_train, y_train)
-
+            # model.set_params(**gridSearchCV.best_params_)
             # model.fit(X_train, y_train)
+
+            model.fit(X_train, y_train)
 
             y_train_pred = model.predict(X_train)
 
@@ -49,5 +49,14 @@ def evaluate_models(X_train, y_train,X_test,y_test,models, param):
             report[list(models.keys())[i]] = test_model_score
 
         return report
+    except Exception as e:
+        raise CustomException(e,sys)
+
+
+def load_object(file_path):
+    try:
+        with open(file_path, 'rb') as file_obj:
+            return dill.load(file_obj)
+
     except Exception as e:
         raise CustomException(e,sys)
