@@ -14,6 +14,8 @@ def get_requirements(file_path:str)->List[str]:
 
         if HYPHEN_DOT in requirements:
             requirements.remove(HYPHEN_DOT)
+
+        requirements = [str(req) for req in requirements]
             
     return requirements
 
