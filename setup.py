@@ -2,7 +2,7 @@ from setuptools import find_packages,setup
 from typing import List
 
 
-HYPHEN_DOT = '-e .'
+HYPHEN_DOT ='-e .'
 def get_requirements(file_path:str)->List[str]:
     """
         Function returns list of requirements
@@ -24,5 +24,7 @@ setup(
     author="Adekunle Adeseye",
     author_email="b1081572@live.tees.ac.uk",
     packages=find_packages(),
-    install_requires=get_requirements('requirements.txt')
+    install_requires=get_requirements("requirements.txt")
 )
+
+

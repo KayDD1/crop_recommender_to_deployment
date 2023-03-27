@@ -14,5 +14,4 @@ xgboost
 shap
 dill
 flask
-
--e . #install at the end so packages are not rebuilt everytime installer runs
+#-e .
